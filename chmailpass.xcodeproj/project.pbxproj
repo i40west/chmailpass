@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FA3EA531EAB22EA00B5BDD9 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3EA521EAB22EA00B5BDD9 /* main.c */; };
+		3F30D98B1EAB2CC400EE07B4 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 3F30D98A1EAB2CC400EE07B4 /* Makefile */; };
+		3FA3EA531EAB22EA00B5BDD9 /* chmailpass.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3EA521EAB22EA00B5BDD9 /* chmailpass.c */; };
+		3FA3EA5D1EAB25DB00B5BDD9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA3EA5C1EAB25DB00B5BDD9 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F30D98A1EAB2CC400EE07B4 /* Makefile */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; fileEncoding = 4; path = Makefile; sourceTree = "<group>"; };
 		3FA3EA4F1EAB22EA00B5BDD9 /* chmailpass */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = chmailpass; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FA3EA521EAB22EA00B5BDD9 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		3FA3EA521EAB22EA00B5BDD9 /* chmailpass.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = chmailpass.c; sourceTree = "<group>"; };
+		3FA3EA5C1EAB25DB00B5BDD9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA3EA5D1EAB25DB00B5BDD9 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +48,7 @@
 			children = (
 				3FA3EA511EAB22EA00B5BDD9 /* chmailpass */,
 				3FA3EA501EAB22EA00B5BDD9 /* Products */,
+				3FA3EA591EAB24E600B5BDD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +63,18 @@
 		3FA3EA511EAB22EA00B5BDD9 /* chmailpass */ = {
 			isa = PBXGroup;
 			children = (
-				3FA3EA521EAB22EA00B5BDD9 /* main.c */,
+				3F30D98A1EAB2CC400EE07B4 /* Makefile */,
+				3FA3EA521EAB22EA00B5BDD9 /* chmailpass.c */,
 			);
 			path = chmailpass;
+			sourceTree = "<group>";
+		};
+		3FA3EA591EAB24E600B5BDD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FA3EA5C1EAB25DB00B5BDD9 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +135,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FA3EA531EAB22EA00B5BDD9 /* main.c in Sources */,
+				3F30D98B1EAB2CC400EE07B4 /* Makefile in Sources */,
+				3FA3EA531EAB22EA00B5BDD9 /* chmailpass.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +170,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -202,7 +218,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -220,6 +236,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = L3N9VN6Q54;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sqlite/3.18.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -228,6 +248,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = L3N9VN6Q54;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sqlite/3.18.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -251,6 +275,7 @@
 				3FA3EA581EAB22EA00B5BDD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
